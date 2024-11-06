@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using System.Globalization;
@@ -157,8 +157,8 @@ try
                     if (!values.ContainsKey(langId))
                         Console.WriteLine($"Language {name} is missing value for key {key}. Using empty string.");
                     string value = values.GetValueOrDefault(langId, "");
-                    // normalize newlines to \n
-                    value = value.Replace("\n", "\\n");
+                    // normalize newlines
+                    value = value.Replace("\n", "\\n").Replace("\r", "\\r");
                     writer.Write('\t' + value);
                 }
             }
